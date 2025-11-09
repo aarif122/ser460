@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SunDevil Connect</title>
+  <style>
+    :root{
+      --asu-maroon:#8C1D40;
+      --asu-gold:#FFC627;
+      --text:#2b2b2b;
+      --bg:#fbf9f9;
+      --card:#ffffff;
+      --muted:#f4f3f5;
+      --ring:#e6d9df;
+      --shadow: 0 6px 28px rgba(20,0,20,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    header{
+      background:var(--asu-maroon); color:white; padding:22px 0 28px; text-align:center; position:sticky; top:0; z-index:2;
+      box-shadow: 0 2px 0 rgba(0,0,0,.03);
+    }
+    header h1{ margin:0; font-size:32px; letter-spacing:.5px}
+    header p{ margin:6px 0 0; opacity:.9 }
+    .wrap{ max-width:980px; margin:28px auto; padding:0 18px}
+    .card{ background:var(--card); border-radius:14px; box-shadow:var(--shadow); padding:22px; border:1px solid var(--ring)}
+    h2{ margin:0 0 14px; font-size:20px}
+    .toolbar{ display:flex; gap:8px; align-items:center; margin-bottom:14px}
+    button{
+      background:var(--asu-maroon); color:white; border:0; padding:10px 14px; border-radius:10px; cursor:pointer;
+      box-shadow: 0 3px 14px rgba(140,29,64,.25);
+    }
+    button.secondary{ background:#ece7ea; color:#412; box-shadow:none}
+    button:disabled{ opacity:.6; cursor:not-allowed}
+    .list{ display:flex; flex-direction:column; gap:10px}
+    .event{
+      background:var(--muted); border:1px solid #eee; border-left:5px solid var(--asu-maroon);
+      padding:12px 12px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; gap:10px;
+    }
+    .meta{ font-size:13px; opacity:.85}
+    .pill{ font-size:12px; padding:4px 8px; border-radius:999px; background:#f1ecef; border:1px solid #e8dde3}
+    footer{
+      text-align:center; padding:28px 0 34px; color:#666; font-size:13px
+    }
+    .row{ display:grid; grid-template-columns: 1fr; gap:18px}
+    @media (min-width: 900px){
+      .row{ grid-template-columns: 2.2fr 1.2fr }
+    }
+    .notice{ background:#fff7d6; border:1px solid #f0e1a0; padding:10px 12px; border-radius:10px; font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SunDevil Connect</h1>
+    <p>Discover clubs, join events, and connect with ASU campus life.</p>
+  </header>
+
+  <main class="wrap">
+    <div class="row">
+      <section class="card">
+        <h2>Upcoming Events</h2>
+        <div class="toolbar">
+          <button id="loadBtn">Load Events</button>
+          <span id="status" class="pill" style="display:none"></span>
+        </div>
+        <div id="events" class="list"></div>
+      </section>
+
+      <aside class="card">
+        <h2>Your Account (demo)</h2>
+        <div id="verifyBox" class="notice" style="display:none"></div>
+        <div style="display:flex; gap:8px; margin-top:8px">
+          <button class="secondary" id="reqCodeBtn">Request Code</button>
+          <button class="secondary" id="checkStatusBtn">Check Verify Status</button>
+        </div>
+        <div style="margin-top:12px">
+          <small>Demo tip: the server returns the OTP as <b>demoCode</b>. We auto-fill it during flow.</small>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 SunDevil Connect • CSE 460 — Phase III Part 1
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
